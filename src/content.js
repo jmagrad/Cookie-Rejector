@@ -1,5 +1,5 @@
 const rejectCookies = () => {
-    const keywords = [
+    const rejectKeywords = [
         "reject", "decline", "deny", "refuse",
         "alle ablehnen", "tout refuser", "rechazar", "tudo rejeitar"
     ];
@@ -8,7 +8,11 @@ const rejectCookies = () => {
 
     for (let btn of buttons) {
         const text = (btn.innerText || btn.value || "").toLowerCase().trim();
-        if (keywords.some(k => text.includes(k))) {
+
+        // Skip if the text includes "pay"
+        if (text.includes("pay")) continue;
+
+        if (rejectKeywords.some(k => text.includes(k))) {
             console.log("Rejecting cookies:", btn);
             btn.click();
             return;
