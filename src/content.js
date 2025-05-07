@@ -17,7 +17,7 @@ const rejectCookies = () => {
         const text = (btn.innerText || btn.value || "").toLowerCase().trim();
 
         // Skip if it includes both a reject keyword AND "pay"
-        if (text.includes("pay")) continue;
+        if (text.includes("pay") || text.includes("subscribe")) continue;
 
         if (rejectKeywords.some(k => text.includes(k))) {
             console.log("Rejecting cookies:", btn);
