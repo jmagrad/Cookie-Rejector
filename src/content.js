@@ -33,3 +33,4 @@ const rejectCookies = () => {
 window.addEventListener("load", () => {
     rejectCookies();
 });
+
